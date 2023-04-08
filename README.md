@@ -1,7 +1,13 @@
 # BG7
 Breast Cancer Prediction using Machine Learning
-Team Members : Pathan Ruksana(19471A05B2) , Devendla Triveni(19471A0574) , Gullapudi Karishma(19471A0579)
+
+Team Members : Pathan Ruksana(19471A05B2) ,
+Devendla Triveni(19471A0574) ,
+Gullapudi Karishma(19471A0579)
+
 DataSet Link:https://www.kaggle.com/merishnasuwal/breast-cancer-prediction-dataset
+
+
 Breast cancer (BC) is one of the most common cancers among women worldwide, representing the
 majority of new cancer cases and cancer related deaths according to global statistics, making it a
 significant public health problem in today’s society.
