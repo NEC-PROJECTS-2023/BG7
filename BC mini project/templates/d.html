@@ -1,0 +1,332 @@
+<!doctype html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <title> Breast Cancer </title>
+   <style>
+	body{
+	    background-image: linear-gradient(to bottom, #012838,#A52260);
+		background-repeat:no-repeat;
+		height:100%;
+		background-attachment:fixed;
+	}
+	.section{
+	  color:white;
+	  font-size:50px;
+	  font-family: Times New Roman;
+	  text-align:center;
+	  margin-top:20px;
+	}
+	.buthead{
+		margin-left:150px;
+		margin-top:50px;
+	}
+	.chead a{
+		padding: 15px 123px;
+		width:80px;
+		font-size: 16px;
+		color: white;
+		background-color:#A52260;
+		border-radius:5px;
+		font-family: Arial, Helvetica, sans-serif;
+	}
+	.chead a:active{
+		background-color:white;
+		color:#01597d;
+	}
+	.container{
+	    background-color:white;
+		margin-top:15px;
+		margin-left:145px;
+		margin-right:145px;
+		border-radius:5px;
+		height:100%;
+		
+	}
+	.selectWrapper{
+		border-radius:8px;
+		display:inline-block;
+		overflow:hidden;
+		background:#cccccc;
+		border:1px solid #cccccc;
+		margin-left:20px;
+	}
+	.selectBox{
+		  width:230px;
+		  height:33px;
+		  border:1px;
+		  outline:none;
+	}
+	p.att{
+		font-size:16px;
+		font-family: "Myriad Pro", "sans-serif";
+	}
+
+	.btn {
+		background-color: #A52260;
+		border: none;
+		color: white;
+		padding: 10px;
+		margin-left:20px;
+		text-align: center;
+		text-decoration: none;
+		display: inline-block;
+		font-size: 16px;
+		margin: 4px 2px;
+		cursor: pointer;
+		border-radius: 8px;
+	}
+	.res{
+	font-family: Arial;
+	}
+
+  </style>
+</head>
+ <body>
+	<div class="main">
+	  <div class="header">
+		<div class="section">
+		  BREAST  CANCER  DETECTION
+		</div>
+	  </div>
+	  <div class="buthead">
+	  <div class="chead">
+		 <a href="{{url_for('home')}}">HOME</a> 
+		 <a href="{{url_for('riskpred')}}">RISK  PREDICTION</a>
+   		 <a href="{{url_for('detect')}}">DETECTION</a>
+	  </div>
+	</div>
+	<div class="container">
+	 <div class="resmat" style="float:left; width:500px;padding-top:45px;padding-right:30px;padding-left:85px; ">
+	    <h3>Benign Tumors</h3>
+	    <p style="text-align:justify; line-height:23px;">When a tumor is diagnosed as benign, doctors will usually leave it alone rather than remove it. Even though these tumors are not generally aggressive toward surrounding tissue, occasionally they may continue to grow, pressing on organs and causing pain or other problems. In these situations, the tumor is removed, allowing pain or complications to subside.</p>
+	    <h3>Malignant Tumors</h3>
+	    <p style="text-align:justify; line-height:23px;">Malignant tumors are cancerous and aggressive because they invade and damage surrounding tissue. When a tumor is suspected to be malignant, the doctor will perform a biopsy to determine the severity or aggressiveness of the tumor.</p>
+	 </div>
+	 <div>
+		<form action="{{url_for('predict')}}" method="post">
+		<table class="tab" style="margin-top:40px; margin-left:450px; padding-top:70px; padding-left:55px;">
+	    
+		<tr>
+	    <td>
+			<div class="selectWrapper">
+  			 <label class="selectBox" for="Mean Area">Mean Area (between 143.5 and 1174.0):</label>
+ <input type="number" step="0.01" min="143.5" max="1174.0">
+			</div>
+	  </td>
+	  </tr>
+	  <tr>
+	    <td>
+			<div class="selectWrapper">
+  			 <label class="selectBox" for="Mean Texture">Mean texture (between 9.71 and 33.81):</label>
+ <input type="number" step="0.01" min="9.71" max="33.81">
+			</div>
+	  </td>
+	  </tr>
+	  <tr>
+	    <td>
+			<div class="selectWrapper">
+  			 <label class="selectBox" for="Mean Texture">Mean smoothness (between 0.5262 and 0.1634):</label>
+ <input type="number" step="0.01" min="0.05262" max="0.1634">
+			</div>
+	  </td>
+	  </tr>
+	  <tr>
+	    <td>
+			<div class="selectWrapper">
+  			 <label class="selectBox" for="Mean Texture">Mean Compactness (between 0.01938 and 0.2839):</label>
+ <input type="number" step="0.01" min="0.01938" max="0.2839">
+			</div>
+	  </td>
+	  </tr>
+	  <tr>
+	    <td>
+			<div class="selectWrapper">
+  			 <label class="selectBox" for="Mean Texture">Mean Concavity (between 0.0 and 0.4108):</label>
+ <input type="number" step="0.01" min="0.0" max="0.4108">
+			</div>
+	  </td>
+	  </tr>
+	  <tr>
+	    <td>
+			<div class="selectWrapper">
+  			 <label class="selectBox" for="Mean Texture">Mean Concave Points (between 0.0 and 0.1469):</label>
+ <input type="number" step="0.01" min="0.0" max="0.1469">
+			</div>
+	  </td>
+	  </tr>
+	  <tr>
+	    <td>
+			<div class="selectWrapper">
+  			 <label class="selectBox" for="Mean Texture">Mean Symmetry (between 0.106 and 0.2743):</label>
+ <input type="number" step="0.01" min="0.106" max="0.2743">
+			</div>
+	  </td>
+	  </tr>
+	  <tr>
+	    <td>
+			<div class="selectWrapper">
+  			 <label class="selectBox" for="Mean Texture">Mean Fractal Dimension (between 0.049 and 0.09744):</label>
+ <input type="number" step="0.01" min="0.0499" max="0.09744">
+			</div>
+	  </td>
+	  </tr>
+	  <tr>
+	    <td>
+			<div class="selectWrapper">
+  			 <label class="selectBox" for="Mean Texture">Radius Error (between 0.1115 and 0.8245):</label>
+ <input type="number" step="0.01" min="0.1115" max="0.8245">
+			</div>
+	  </td>
+	  </tr>
+	  <tr>
+	    <td>
+			<div class="selectWrapper">
+  			 <label class="selectBox" for="Mean Texture">Texture Error (between 0.3602 and 4.885):</label>
+ <input type="number" step="0.01" min="0.3602" max="4.885">
+			</div>
+	  </td>
+	  </tr>
+	  <tr>
+	    <td>
+			<div class="selectWrapper">
+  			 <label class="selectBox" for="Mean Texture">Perimeter Error (between 0.757 and 5.801):</label>
+ <input type="number" step="0.01" min="0.757" max="5.801">
+			</div>
+	  </td>
+	  </tr>
+	  <tr>
+	    <td>
+			<div class="selectWrapper">
+  			 <label class="selectBox" for="Mean Texture">Area Error (between 6.802 and 74.08):</label>
+ <input type="number" step="0.01" min="6.802" max="74.08">
+			</div>
+	  </td>
+	  </tr>
+	  <tr>
+	    <td>
+			<div class="selectWrapper">
+  			 <label class="selectBox" for="Mean Texture">Smoothness Error (between 0.001713 and 0.03113):</label>
+ <input type="number" step="0.01" min="0.001713" max="0.03113">
+			</div>
+	  </td>
+	  </tr>
+	  <tr>
+	    <td>
+			<div class="selectWrapper">
+  			 <label class="selectBox" for="Mean Texture">compactness error (between 0.002252 and 0.1354):</label>
+ <input type="number" step="0.01" min="0.002252" max="0.1354">
+			</div>
+	  </td>
+	  </tr>
+	  <tr>
+	    <td>
+			<div class="selectWrapper">
+  			 <label class="selectBox" for="Mean Texture">concavity error (between  0.0 and 0.396):</label>
+ <input type="number" step="0.01" min=" 0.0" max="0.396">
+			</div>
+	  </td>
+	  </tr>
+	  <tr>
+	    <td>
+			<div class="selectWrapper">
+  			 <label class="selectBox" for="Mean Texture">concave points error (between 0.0  and 0.05279):</label>
+ <input type="number" step="0.01" min="0.0 " max="0.05279">
+			</div>
+	  </td>
+	  </tr>
+	  <tr>
+	    <td>
+			<div class="selectWrapper">
+  			 <label class="selectBox" for="Mean Texture">symmetry error (between 0.009539 and 0.06146):</label>
+ <input type="number" step="0.01" min="0.009539" max="0.06146">
+			</div>
+	  </td>
+	  </tr>
+	  <tr>
+	    <td>
+			<div class="selectWrapper">
+  			 <label class="selectBox" for="Mean Texture">fractal dimension error (between  0.00089and 0.02984):</label>
+ <input type="number" step="0.01" min=" 0.0008948000000000001" max="0.02984">
+			</div>
+	  </td>
+	  </tr>
+	  <tr>
+	    <td>
+			<div class="selectWrapper">
+  			 <label class="selectBox" for="Mean Texture">worst radius (between 7.93 and 20.96):</label>
+ <input type="number" step="0.01" min="7.93" max="20.96">
+			</div>
+	  </td>
+	  </tr>
+	  <tr>
+	    <td>
+			<div class="selectWrapper">
+  			 <label class="selectBox" for="Mean Texture">worst texture (between  12.02 and 49.54):</label>
+ <input type="number" step="0.01" min=" 12.02" max="49.54">
+			</div>
+	  </td>
+	  </tr>
+	  <tr>
+	    <td>
+			<div class="selectWrapper">
+  			 <label class="selectBox" for="Mean Texture">worst smoothness (between 0.0711700 and 0.2226):</label>
+ <input type="number" step="0.01" min="0.0711700" max="0.2226">
+			</div>
+	  </td>
+	  </tr>
+	  <tr>
+	    <td>
+			<div class="selectWrapper">
+  			 <label class="selectBox" for="Mean Texture">worst compactness (between 0.02729 and 1.058):</label>
+ <input type="number" step="0.01" min="0.02729" max="1.058">
+			</div>
+	  </td>
+	  </tr>
+	  <tr>
+	    <td>
+			<div class="selectWrapper">
+  			 <label class="selectBox" for="Mean Texture">worst concavity (between 0.0 and 1.252):</label>
+ <input type="number" step="0.01" min="0.0" max="1.252">
+			</div>
+	  </td>
+	  </tr><tr>
+	    <td>
+			<div class="selectWrapper">
+  			 <label class="selectBox" for="Mean Texture">worst concave points (between 0.0 and 0.2701):</label>
+ <input type="number" step="0.01" min="0.0" max=" 0.2701">
+			</div>
+	  </td>
+	  </tr>
+	  <tr>
+	    <td>
+			<div class="selectWrapper">
+  			 <label class="selectBox" for="Mean Texture">worst symmetry(between 0.1566 and 0.6638):</label>
+ <input type="number" step="0.01" min="0.1566" max="0.6638">
+			</div>
+	  </td>
+	  </tr>
+	  <tr>
+	    <td>
+			<div class="selectWrapper">
+  			 <label class="selectBox" for="Mean Texture">worst fractal dimension(between 0.05521 and 0.6638):</label>
+ <input type="number" step="0.01" min="0.05521" max=" 0.2075">
+			</div>
+	  </td>
+	  </tr>
+	<tr><th style="align:center;"><button type="submit" class="btn">Predict</button></th></tr>
+	<tr>
+	<td>
+	</table>
+	</form>
+   
+	</div>
+	<div>
+       <center>
+   <h1>{{ prediction_text }}</h1>
+       </center>
+   </div>
+  </div>
+</div>
+</body>
+</html>

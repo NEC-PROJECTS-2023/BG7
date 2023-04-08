@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>Breast Cancer</title>
+ <style>
+	body{
+	    background-image: linear-gradient(to bottom, #012838,#A52260);
+		background-repeat:no-repeat;
+		height:100%;
+		background-attachment:fixed;
+	}
+	.section{
+	  color:#A52260;
+	  font-size:50px;
+	  font-family: Times New Roman;
+	  text-align:center;
+	  margin-top:20px;
+	}
+	.buthead{
+		margin-left:150px;
+		margin-top:50px;
+	}
+	.chead a{
+		padding: 15px 123px;
+		width:80px;
+		font-size: 16px;
+		color: white;
+		background-color:#A52260;
+		border-radius:5px;
+		font-family: Arial, Helvetica, sans-serif;
+	}
+	.chead a:active{
+		background-color:white;
+		color:#01597d;
+	}
+	.container{
+	    background-color:white;
+		margin-top:45px;
+		margin-left:145px;
+		margin-right:145px;
+		border-radius:5px;
+		height:100%;
+		
+	}
+	
+	#form {
+	border: none;
+	margin-right:220px;
+	margin-left:220px;
+	margin-top:15px;
+	margin-bottom:15px;
+	}
+	#form p{
+	 text-align:center;
+	}
+	.btn {
+		background-color: #A52260;
+		border: none;
+		color: white;
+		padding: 10px;
+		margin-left:20px;
+		text-align: center;
+		text-decoration: none;
+		display: inline-block;
+		font-size: 16px;
+		margin: 4px 2px;
+		cursor: pointer;
+		border-radius: 8px;
+	}
+	.radio-item label{
+	color: #A52260;
+	}
+			
+   </style>
+
+	<script type="text/javascript">
+var numericalValues = new Array();
+numericalValues["age1"]= 10;
+numericalValues["age2"]= 20;
+numericalValues["age3"]= 15;
+numericalValues["firstdegree1"]= 15;
+numericalValues["firstdegree2"]= 20;
+numericalValues["firstdegree3"]= 30;
+numericalValues["menstrual1"]= 10;
+numericalValues["menstrual2"]= 8;
+numericalValues["menstrual3"]= 7;
+numericalValues["birth1"]= 10;
+numericalValues["birth2"]= 8;
+numericalValues["birth3"]= 7;
+numericalValues["birth4"]=0;
+numericalValues["biopsy1"]=10 ;
+numericalValues["biopsy2"]= 8;
+numericalValues["biopsy3"]= 7;
+numericalValues["race1"]= 10;
+numericalValues["race2"]= 8;
+function getScoreAge()
+{
+//alert("age is called");
+ var scoreAge = 0;
+    var form = document.forms["form"];
+    var age = form.elements["age"];
+    for(var i=0; i<age.length; i++){
+        if(age[i].checked){
+            totalscore = numericalValues[age[i].value];
+            //break;
+        }
+    }
+    return totalscore;
+}
+function getScoreFirstdegree()
+{
+//alert("firstdegree is called");
+ var scoreFirstdegree = 0;
+    var form = document.forms["form"];
+    var firstdegree = form.elements["firstdegree"];
+    for(var i=0; i<firstdegree.length; i++){
+        if(firstdegree[i].checked){
+            totalscore = numericalValues[firstdegree[i].value];
+            //break;
+        }
+    }
+    return totalscore;
+}
+
+function getScoreMenstrual()
+{
+//alert("menstrual is called");
+ var scoreMenstrual = 0;
+    var form = document.forms["form"];
+    var menstrual = form.elements["menstrual"];
+    for(var i=0; i<menstrual.length; i++){
+        if(menstrual[i].checked){
+            totalscore = numericalValues[menstrual[i].value];
+            //break;
+        }
+    }
+    return totalscore;
+}
+
+
+function getScoreFirstchild()
+{
+//alert("first child is called");
+ var scoreFirstchild = 0;
+    var form = document.forms["form"];
+    var firstchild = form.elements["birth"];
+    for(var i=0; i<firstchild.length; i++){
+        if(firstchild[i].checked){
+            totalscore = numericalValues[firstchild[i].value];
+            //break;
+        }
+    }
+    return totalscore;
+}
+function getScoreBiopsy()
+{
+//alert("biopsy  is called");
+ var scoreBiopsy = 0;
+    var form = document.forms["form"];
+    var biopsy = form.elements["biopsy"];
+    for(var i=0; i<biopsy.length; i++){
+        if(biopsy[i].checked){
+            totalscore = numericalValues[biopsy[i].value];
+            //break;
+        }
+    }
+    return totalscore;
+}
+function getScoreRace()
+{
+//alert("race is called");
+ var scoreRace = 0;
+    var form = document.forms["form"];
+    var race = form.elements["race"];
+    for(var i=0; i<race.length; i++){
+        if(race[i].checked){
+            totalscore = numericalValues[race[i].value];
+            //break;
+        }
+    }
+    return totalscore;
+}
+	
+function getTotal(){
+	var totalscore1 = getScoreAge() + getScoreFirstdegree()+ getScoreMenstrual() + getScoreFirstchild() + getScoreBiopsy() + getScoreRace();
+	var txt;
+	if(totalscore1>=65)
+	{
+
+		alert("Patient is at High risk");
+		window.open("{{url_for('riskpred')}}");
+		
+	}
+	else if(totalscore1>=50 && totalscore<65)
+	{
+				
+		alert("Patient is at Medium risk");
+		window.open("{{url_for('riskpred')}}");
+	
+	}
+	else{
+				
+		alert("Patient is at Low risk");
+		window.open("{{url_for('riskpred')}}");
+		
+	}
+
+}
+</script>
+
+  </head>
+ <body>
+	<div class="main">
+	  <div class="header">
+		<div class="section">
+		  BREAST  CANCER  DETECTION
+		</div>
+	  </div>
+	  <div class="buthead">
+	  
+	</div>
+	<div class="container">
+	<div id="result"></div>
+		 <form id="form" name="form" method="post" action="" >
+<fieldset id="controls">
+  <h4 style="text-align:center;">1.Please enter the patient age</h4>
+  <p>
+  <label>10-30 </label>
+  <input type="radio" name="age" id="age1" value="age1" checked="true">
+  <label>30-60</label>
+  <input type="radio" name="age" id="age2" value="age2">
+  <label>60-100 </label>
+  <input type="radio" name="age" id="age3" value="age3">
+  </p>
+
+  <h4 style="text-align:center;">2.How many of your sisters,daughters or mother has breast cancer?</h4>
+  <p>
+  <label>None </label>
+  <input type="radio" name="firstdegree" id="firstdegree1" value="firstdegree1" checked="true">
+   <label>one </label>
+  <input type="radio" name="firstdegree" id="firstdegree2" value="firstdegree2">
+  <label>more</label>
+  <input type="radio" name="firstdegree" id="firstdegree3" value="firstdegree3">
+   
+  </p>
+  
+  <h4 style="text-align:center;">3.At what age did your menstrual cycle begins</h4>
+  <p>
+  <label>11-12yrs</label>
+  <input type="radio" name="menstrual" id="menstrual1" value="menstrual1" checked="true">
+   <label>12-13yrs </label>
+  <input type="radio" name="menstrual" id="menstrual2" value="menstrual2">
+  <label>14yrs or later </label>
+  <input type="radio" name="menstrual" id="menstrual3" value="menstrual3">
+  </p>
+
+  <h4 style="text-align:center;">4.At what age did you give birth to first child</h4>
+  <p>
+  <label>19yrs or earlier</label>
+  <input type="radio" name="birth" id="birth1" value="birth1" checked="true">
+   <label>20-24yrs </label>
+  <input type="radio" name="birth" id="birth2" value="birth2">
+  <label>25-29yrs </label>
+  <input type="radio" name="birth" id="birth3" value="birth3">
+  <label>none</label>
+  <input type="radio" name="birth" id="birth4" value="birth4">
+  </p>
+  
+  <h4 style="text-align:center;">5.How many breast biopsies have you had</h4>
+  <p>
+  <label>none</label>
+  <input type="radio" name="biopsy" id="biopsy1" value="biopsy1" checked="true">
+   <label>one </label>
+  <input type="radio" name="biopsy" id="biopsy2" value="biopsy2">
+  <label>more </label>
+  <input type="radio" name="biopsy" id="biopsy3" value="biopsy3">
+  </p>
+
+  <h4 style="text-align:center;">6.My race is</h4>
+  <p>
+  <label>white</label>
+  <input type="radio" name="race" id="race1" value="race1" checked="true">
+   <label>black </label>
+  <input type="radio" name="race" id="race2" value="race2">
+  
+  </p>
+  
+  
+
+   <p> <input type="submit" name="Calculate" id="calculate" class="btn" value="Calculate" onclick="getTotal()"/></p>
+  </center>
+  </form>
+	
+		</div>
+   </div>
+  </div>
+    
+ </body>
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title> Breast Cancer </title>
+<style>
+	html{
+		height:100%;
+	}
+	body{
+	    background-image: linear-gradient(to bottom, #012838,#A52260);
+		background-repeat:no-repeat;
+		height:100%;
+		background-attachment:fixed;
+	}
+	.section{
+	  color:#A52260;
+	  font-size:50px;
+	  font-family: Times New Roman;
+	  text-align:center;
+	  margin-top:20px
+	}
+	.buthead{
+		margin-left:150px;
+		margin-top:50px;
+	}
+	.chead a{
+		padding: 15px 123px;
+		width:80px;
+		font-size: 16px;
+		color: white;
+		background-color:#A52260;
+		border-radius:5px;
+		font-family: Arial, Helvetica, sans-serif;
+	}
+	.chead a:active{
+		background-color:white;
+		color:#01597d;
+	}
+	.container{
+		background-color:white;
+		margin-top:45px;
+		margin-left:140px;
+		margin-right:140px;
+		border-radius:5px;
+	}
+	.his{
+		margin-left:70px;
+		padding-top:30px;
+	}
+	.last{
+	    color:#A52260;
+		font-weight:bold;
+	}
+	img{
+		float:left;
+		padding:20px;
+		height:200px;
+		width:150px;
+	}
+	.his p{
+		
+		padding-top:10px;
+		line-height:25px;
+		padding-right:75px;
+		text-align:justify;
+		padding-bottom:0;
+	}
+	.cause{
+		margin-left:100px;
+		padding-top:15px;
+	}
+	.cause p{
+		
+		padding-top:10px;
+		line-height:25px;
+		padding-right:75px;
+		text-align:justify;
+		padding-bottom:20px;
+	}
+	
+	
+</style>
+</head>
+<body> 
+  <div class="main">
+	<div class="header">
+		<div class="section">
+		  BREAST  CANCER  PREDICTION
+		</div>
+	</div>
+	<div class="buthead">
+	<div class="chead">
+		<a href="{{url_for('home')}}">HOME</a> 
+		<a href="{{url_for('riskpred')}}">RISK  PREDICTION</a>
+		<a href="{{url_for('detect')}}">PREDICTION</a>
+		
+	  </div>
+	 </div>
+</div>
+	<div class="container">
+	
+	<div>
+      </div>
+		  <div class="cause">
+		    <h1 style="margin-left:10px;"><span class="last">Breast Cancer</span></h1>
+			<p>Breast cancer is the second most common cancer worldwide and the most commonly occurring malignancy in women. There is growing evidence that lifestyle factors, including diet, body weight and physical activity, may be associated with higher BC risk. However, the effect of dietary factors on BC recurrence and mortality is not clearly understood. Here, we provide an overview of the current evidence obtained from the PubMed databases in the last decade, assessing dietary patterns, as well as the consumption of specific food-stuffs/food-nutrients, in relation to BC incidence, recurrence and survival. Data from the published literature suggest that a healthy dietary pattern characterized by high intake of unrefined cereals, vegetables, fruit, nuts and olive oil, and a moderate/low consumption of saturated fatty acids and red meat, might improve overall survival after diagnosis of BC. BC patients undergoing chemotherapy and radiotherapy experience a variety of symptoms that worsen patient quality of life. Studies investigating nutritional interventions during BC treatment have shown that nutritional counselling and supplementation with some dietary constituents, such as EPA and DHA, might be useful in limiting drug-induced side effects, as well as in enhancing therapeutic efficacy. Therefore, nutritional intervention in BC patients may be considered an integral part of the multimodal therapeutic approach. However, further research utilizing dietary interventions in large clinical trials is required to definitively establish effective interventions in these patients, to improve long-term survival and quality of life.</p>
+
+		  </div>
+		  
+		</div>
+      
+ 
+
+  </div>
+</body>
+</html>
